@@ -10,9 +10,9 @@ ACCP_ANNEE = 2021
 
 LIENS_PRODUITS = {
     "Fumier bovins C2": 0,
-    "Fumier bovins mou C2": 1,
-    "Lisiers C2": 2,
-    "Fumier ovins C2": 3,
+    "Fumier bovins mou C2": 0,
+    "Lisiers C2": 1,
+    "Fumier ovins C2": 2,
     "DIGESTAT C2": 4,
 }
 
