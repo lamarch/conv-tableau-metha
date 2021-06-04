@@ -1,0 +1,276 @@
+Exception in Tkinter callback
+Chargement fichier données : "C:/Users/Xavier/Sync/290521/donnees/Pesées terminées 3.csv"
+
+Traceback (most recent call last):
+  File "tkinter\__init__.py", line 1892, in __call__
+  File "main.py", line 155, in <lambda>
+    bt_go = tk.Button(fenetre, text="Générer", command=lambda: gen(
+  File "main.py", line 86, in gen
+    threads += t
+TypeError: 'AdvancedThread' object is not iterable
+Intervalle de date non respecté,
+6 - ERREUR : Impossible de lire la date : "10/12/2020 18:08:48".
+Intervalle de date non respecté,
+7 - ERREUR : Impossible de lire la date : "10/12/2020 18:09:56".
+Intervalle de date non respecté,
+8 - ERREUR : Impossible de lire la date : "10/12/2020 18:13:45".
+Intervalle de date non respecté,
+9 - ERREUR : Impossible de lire la date : "10/12/2020 18:14:45".
+Intervalle de date non respecté,
+10 - ERREUR : Impossible de lire la date : "10/12/2020 18:22:18".
+Intervalle de date non respecté,
+11 - ERREUR : Impossible de lire la date : "10/12/2020 18:23:38".
+Intervalle de date non respecté,
+40 - ERREUR : Impossible de lire la date : "10/12/2020 14:13:54".
+Intervalle de date non respecté,
+41 - ERREUR : Impossible de lire la date : "10/12/2020 14:14:29".
+Intervalle de date non respecté,
+42 - ERREUR : Impossible de lire la date : "10/12/2020 14:15:10".
+Heure minuit,
+146 - ERREUR : Impossible de lire la date : "01/02/2021 00:00:00".
+{
+  "14": {
+    "0": {
+      "1": 314300.0,
+      "2": 287920.0,
+      "3": 144180.0,
+      "4": 137460.0,
+      "5": 259160.0
+    },
+    "4": {
+      "1": 289000.0,
+      "2": 45260.0
+    },
+    "2": {
+      "5": 14140.0
+    }
+  },
+  "16": {
+    "0": {
+      "1": 161600.0,
+      "2": 127060.0,
+      "3": 175520.0,
+      "4": 179020.0,
+      "5": 154620.0
+    }
+  },
+  "20": {
+    "0": {
+      "1": 45640.0,
+      "2": 67350.0,
+      "3": 31220.0,
+      "4": 48040.0,
+      "5": 85920.0
+    },
+    "1": {
+      "2": 142460.0,
+      "3": 153230.0,
+      "4": 492549.0,
+      "5": 244420.0
+    }
+  },
+  "11": {
+    "2": {
+      "1": 124440.0,
+      "2": 169260.0,
+      "3": 208690.0,
+      "4": 159340.0,
+      "5": 163730.0
+    }
+  },
+  "4": {
+    "2": {
+      "1": 9500.0,
+      "2": 51620.0,
+      "3": 105520.0
+    }
+  },
+  "15": {
+    "0": {
+      "1": 106420.0,
+      "2": 210480.0,
+      "3": 50040.0,
+      "4": 101080.0,
+      "5": 173960.0
+    },
+    "4": {
+      "2": 232220.0
+    },
+    "1": {
+      "2": 66140.0,
+      "3": 300680.0,
+      "4": 20000.0,
+      "5": 82000.0
+    }
+  },
+  "5": {
+    "4": {
+      "1": 226220.0
+    },
+    "2": {
+      "5": 64760.0
+    }
+  },
+  "3": {
+    "4": {
+      "1": 227240.0
+    },
+    "0": {
+      "1": 66740.0,
+      "2": 84180.0,
+      "3": 72600.0,
+      "4": 77560.0,
+      "5": 52820.0
+    }
+  },
+  "1": {
+    "0": {
+      "1": 72320.0,
+      "2": 66540.0,
+      "3": 86020.0,
+      "4": 22200.0
+    }
+  },
+  "21": {
+    "4": {
+      "1": 502000.0,
+      "2": 43800.0
+    },
+    "0": {
+      "1": 83360.0,
+      "2": 132900.0,
+      "3": 102240.0,
+      "4": 51000.0,
+      "5": 103720.0
+    }
+  },
+  "9": {
+    "0": {
+      "1": 42580.0,
+      "2": 18520.0,
+      "3": 18860.0,
+      "4": 14100.0,
+      "5": 22180.0
+    }
+  },
+  "18": {
+    "0": {
+      "1": 71780.0,
+      "2": 106520.0,
+      "3": 138620.0,
+      "4": 75480.0,
+      "5": 73120.0
+    },
+    "1": {
+      "2": 43800.0,
+      "4": 56640.0
+    },
+    "4": {
+      "2": 300420.0
+    }
+  },
+  "19": {
+    "0": {
+      "1": 37720.0,
+      "2": 92160.0,
+      "3": 60840.0,
+      "4": 93480.0,
+      "5": 60520.0
+    },
+    "1": {
+      "3": 151060.0,
+      "4": 76530.0
+    }
+  },
+  "30": {
+    "1": {
+      "1": 0.0
+    }
+  },
+  "12": {
+    "2": {
+      "1": 118860.0,
+      "4": 143580.0,
+      "5": 56080.0
+    },
+    "4": {
+      "3": 87360.0
+    }
+  },
+  "2": {
+    "0": {
+      "1": 22080.0,
+      "2": 19120.0,
+      "3": 23000.0,
+      "4": 20460.0,
+      "5": 18300.0
+    }
+  },
+  "13": {
+    "0": {
+      "1": 21140.0,
+      "2": 14600.0,
+      "4": 17380.0,
+      "5": 23000.0
+    },
+    "4": {
+      "1": 42200.0
+    }
+  },
+  "7": {
+    "0": {
+      "1": 44700.0,
+      "2": 45540.0,
+      "3": 45790.0,
+      "4": 101980.0,
+      "5": 97180.0
+    },
+    "4": {
+      "2": 136980.0,
+      "1": 43800.0
+    }
+  },
+  "6": {
+    "0": {
+      "1": 25300.0,
+      "3": 20800.0,
+      "4": 50100.0,
+      "5": 47300.0
+    }
+  },
+  "8": {
+    "0": {
+      "1": 22040.0,
+      "2": 38620.0,
+      "4": 37340.0,
+      "5": 21700.0
+    },
+    "1": {
+      "4": 41400.0,
+      "5": 39900.0
+    }
+  }
+}
+Chargement fichier modèle : "C:/Users/Xavier/Sync/290521/donnees/tableau-01janv30mai3 ensilage.xlsx"
+Export en cours, client 1/20...
+Export en cours, client 2/20...
+Export en cours, client 3/20...
+Export en cours, client 4/20...
+Export en cours, client 5/20...
+Export en cours, client 6/20...
+Export en cours, client 7/20...
+Export en cours, client 8/20...
+Export en cours, client 9/20...
+Export en cours, client 10/20...
+Export en cours, client 11/20...
+Export en cours, client 12/20...
+Export en cours, client 13/20...
+Export en cours, client 14/20...
+Export en cours, client 15/20...
+Export en cours, client 16/20...
+Export en cours, client 17/20...
+Export en cours, client 18/20...
+Export en cours, client 19/20...
+Export en cours, client 20/20...
+Sauvegarde fichier sortie : "C:/Users/Xavier/Sync/290521/donnees/out test fumier.xlsx"
+

@@ -1,4 +1,0 @@
-FROM:join() missing 1 required positional argument: 'self'
-
-
-MESSAGE:

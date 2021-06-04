@@ -83,7 +83,7 @@ def gen(entree_in: str, entree_mod: str, entree_out: str, bt_gen: tk.Button):
 
     t.start()
 
-    threads += t
+    threads.append(t)
 
 
 def thread_gen(chargeur: Chargeur, exporteur: Exporteur):
