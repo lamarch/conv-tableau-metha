@@ -66,8 +66,10 @@ def disable_bt(bt):
 
 
 def gen(entree_in: str, entree_mod: str, entree_out: str, bt_gen: tk.Button):
-
-    import threading
+    def gen_fini(bt_gen: tk.Button):
+        enable_bt(bt_gen)
+        messagebox.showinfo("Génération terminée !",
+                            "La génération du fichier s'est terminée avec succès !")
     global threads
 
     disable_bt(bt_gen)
@@ -76,7 +78,7 @@ def gen(entree_in: str, entree_mod: str, entree_out: str, bt_gen: tk.Button):
     exporteur = Exporteur(entree_mod, entree_out)
 
     t = AdvancedThread(
-        on_quit=lambda: enable_bt(bt_gen),
+        on_quit=lambda: gen_fini(bt_gen),
         target=thread_gen,
         args=(chargeur, exporteur)
     )
@@ -91,35 +93,6 @@ def thread_gen(chargeur: Chargeur, exporteur: Exporteur):
     exporteur.charger()
     exporteur.convertir(chargeur.resultats)
     exporteur.sauvegarder()
-
-
-def __gen_threaded(entree_in: str, entree_mod: str, entree_out: str):
-
-    messagebox.showinfo('Travail en cours...',
-                        'Travail en cours, merci de patienter. Cliquez sur "OK" pour continuer.')
-
-    if(not os.path.isfile(entree_in)):
-        messagebox.showerror('Erreur de fichier !',
-                             f'Le fichier de données "{entree_in}" n\'existe pas !')
-        return
-
-    if(not os.path.isfile(entree_mod)):
-        messagebox.showerror('Erreur de fichier !',
-                             f'Le fichier modèle "{entree_mod}" n\'existe pas !')
-        return
-
-    #donnees = recuperer(entree_in)
-    print('\n\n\n\n\n')
-
-    #print(dumps(donnees, indent=2))
-    print('\n\n\n\n\n')
-
-    #ecrire(entree_mod, donnees, entree_out)
-    print('\n\n\n\n\n')
-
-    print('Terminé !')
-
-    messagebox.showinfo('Tâche terminée !', 'Tâche effectuée avec succès !')
 
 
 def ui():
