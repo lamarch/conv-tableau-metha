@@ -6,14 +6,21 @@ DATE = 14
 PRODUIT = 19
 CODE_CLIENT = 22
 
-ACCP_ANNEE = 2021
+ACCP_ANNEE = 2020
 
 LIENS_PRODUITS = {
+    "Fumier bovins": 0,
     "Fumier bovins C2": 0,
+    "Fumier bovins mou": 0,
     "Fumier bovins mou C2": 0,
+    "Lisiers": 1,
     "Lisiers C2": 1,
+    "Fumier ovins": 2,
     "Fumier ovins C2": 2,
-    "DIGESTAT C2": 4,
+    "Maïs ensilage": 3,
+    "Seigle ensilage": 4,
+    "DIGESTAT": 5,
+    "DIGESTAT C2": 5,
 }
 
 FORMAT_IN_DATE = "%d/%m/%Y %H:%M:%S"
