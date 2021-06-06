@@ -6,7 +6,7 @@ DATE = 14
 PRODUIT = 19
 CODE_CLIENT = 22
 
-ACCP_ANNEE = 2020
+ACCP_ANNEE = 2021
 
 LIENS_PRODUITS = {
     "Fumier bovins": 0,
