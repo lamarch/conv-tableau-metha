@@ -1,4 +1,12 @@
-from tkinter import Label, Entry, Button, DISABLED, StringVar, filedialog, Frame
+from tkinter import Label, Entry, Button, DISABLED, StringVar, filedialog, Frame, NORMAL
+
+
+def enable_bt(bt):
+    bt['state'] = NORMAL
+
+
+def disable_bt(bt):
+    bt['state'] = DISABLED
 
 
 class FileEntry(Frame):

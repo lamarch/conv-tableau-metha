@@ -57,15 +57,9 @@ def panic(self, *args):
     sys.exit(0)
 
 
-def enable_bt(bt):
-    bt['state'] = NORMAL
-
-
-def disable_bt(bt):
-    bt['state'] = DISABLED
-
-
 def gen(entree_in: str, entree_mod: str, entree_out: str, bt_gen: tk.Button):
+    from ui import enable_bt, disable_bt
+
     def gen_fini(bt_gen: tk.Button):
         enable_bt(bt_gen)
         messagebox.showinfo("Génération terminée !",
