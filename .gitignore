@@ -3,3 +3,4 @@
 /donnees
 /logs
 /__pycache__
+*.spec
