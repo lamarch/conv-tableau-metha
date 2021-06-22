@@ -7,10 +7,16 @@ from datetime import datetime
 from generateur.Generateur import Generateur
 from generateur.common import GenOptions
 from ui import OpenFileEntry, SaveFileEntry, disable_bt, enable_bt
-from utils import panic
+from utils import panic, is_devenv
 
 FICHIER_NON_SELECTIONNE = "Aucun fichier séléctionné."
 FORMAT_DATE = "%d/%m/%y"
+
+DEFAUT_FICHIER_IN = ""
+DEFAUT_FICHIER_MOD = "C:\\Users\\Xavier\\Sync\\trav\\290521\\donnees\\modele 5.xlsx"
+DEFAUT_FICHIER_OUT = "C:\\Users\\Xavier\\Sync\\trav\\290521\\donnees\\out 9.xlsx"
+DEFAUT_TEMPS_DEBUT = "1/1/21"
+DEFAUT_TEMPS_FIN = "1/1/22"
 
 
 class AppWindow(tk.Tk):
@@ -146,6 +152,13 @@ class AppWindow(tk.Tk):
         self.bt_go = tk.Button(self, text="Générer",
                                command=self.__generer)
         self.bt_go.grid(row=4, column=0, columnspan=2)
+
+        if is_devenv():
+            self.entree_in.var.set(DEFAUT_FICHIER_IN)
+            self.entree_mod.var.set(DEFAUT_FICHIER_MOD)
+            self.entree_out.var.set(DEFAUT_FICHIER_OUT)
+            self.entree_ftemps_debut.insert(0, DEFAUT_TEMPS_DEBUT)
+            self.entree_ftemps_fin.insert(0, DEFAUT_TEMPS_FIN)
 
     def ask_stop(self):
         self.generateur.ask_clean_threads()
