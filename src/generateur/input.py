@@ -51,7 +51,8 @@ def lire_date(date: str) -> datetime:
 class Chargeur:
     def __init__(self, gen_options: GenOptions) -> None:
         self.nom_fichier = gen_options.fichier_in
-        self.annee = gen_options.annee
+        self.debut = gen_options.filtre_temps_debut
+        self.fin = gen_options.filtre_temps_fin
 
     def recuperer(self):
         return self.convertir(lire_donnees(self.nom_fichier))
@@ -76,13 +77,16 @@ class Chargeur:
 
             try:
                 date_p = lire_date(date)
-                mois = date_p.month
-                if date_p.year != self.annee:
+
+                if date_p < self.debut or date_p >= self.fin:
                     print('Intervalle de date non respecté,')
                     raise ValueError(date)
+
                 if date_p.hour == 00:
                     print(f'Heure minuit,')
                     raise ValueError(date)
+
+                mois = date_p.month
             except:
                 print(
                     f'{index} - ERREUR : Impossible de lire la date : "{date}".')

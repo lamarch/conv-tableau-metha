@@ -1,15 +1,17 @@
 import threading
 from tkinter import messagebox
+import traceback
 
 
-def panic(*args):
+def panic(msg: str, tb: traceback):
     import sys
-
-    msg = '\n'.join(map(lambda a: str(a), args))
 
     messagebox.showerror(
         'Erreur critique !', f'Une erreur critique est survenue, demandez de l\'aide à l\'assistance ! Ne pas supprimer le fichier "erreur.txt".\n\n\n')
     with open('erreur.txt', 'w', encoding='UTF8') as f:
+        if tb:
+            f.write(traceback.format_tb(tb))
+        f.write("\n\n\n")
         f.write(msg)
 
     sys.exit(1)
