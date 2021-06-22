@@ -1,10 +1,10 @@
-from Window import AppWindow
 import sys
 import os.path
 from os import mkdir
-
 from datetime import datetime
-import tkinter.messagebox as messagebox
+
+from Window import AppWindow
+from utils import panic
 
 
 def AJD(): return str(datetime.now()).replace(':', '-').replace('/', '-')
@@ -13,19 +13,6 @@ def AJD(): return str(datetime.now()).replace(':', '-').replace('/', '-')
 FICHIER_IN = './donnees/Pesées terminées.csv'
 FICHIER_MOD = './donnees/recapitulatif 21.xlsx'
 FICHIER_OUT = f'./donnees/out-{AJD()}.xlsx'
-
-
-def panic(*args):
-    import sys
-
-    msg = '\n'.join(map(lambda a: str(a), args))
-
-    messagebox.showerror(
-        'Erreur critique !', f'Une erreur critique est survenue, demandez de l\'aide à l\'assistance ! Ne pas supprimer le fichier "erreur.txt".\n\n\n')
-    with open('erreur.txt', 'w', encoding='UTF8') as f:
-        f.write(msg)
-
-    sys.exit(0)
 
 
 def main():

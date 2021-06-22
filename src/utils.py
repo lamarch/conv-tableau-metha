@@ -1,4 +1,18 @@
 import threading
+from tkinter import messagebox
+
+
+def panic(*args):
+    import sys
+
+    msg = '\n'.join(map(lambda a: str(a), args))
+
+    messagebox.showerror(
+        'Erreur critique !', f'Une erreur critique est survenue, demandez de l\'aide à l\'assistance ! Ne pas supprimer le fichier "erreur.txt".\n\n\n')
+    with open('erreur.txt', 'w', encoding='UTF8') as f:
+        f.write(msg)
+
+    sys.exit(1)
 
 
 class AdvancedThread(threading.Thread):

@@ -5,6 +5,7 @@ from os.path import isfile
 from generateur.Generateur import Generateur
 from generateur.common import GenOptions
 from ui import OpenFileEntry, SaveFileEntry, disable_bt, enable_bt
+from utils import panic
 
 FICHIER_NON_SELECTIONNE = "Aucun fichier séléctionné."
 
@@ -55,16 +56,22 @@ class AppWindow(tk.Tk):
 
         return True
 
-    def __generer(self, gen_options: GenOptions, bt_go: tk.Button):
+    def __generer(self):
         def gen_fini():
-            enable_bt(bt_go)
+            enable_bt(self.bt_go)
             messagebox.showinfo("Génération terminée !",
                                 "La génération du fichier s'est terminée avec succès !")
+
+        gen_options = GenOptions(
+            self.entree_in.filename,
+            self.entree_mod.filename,
+            self.entree_out.filename,
+            self.entree_annee.get())
 
         if self.__check_entry(gen_options):
 
             gen_options = gen_options._replace(annee=int(gen_options.annee))
-            disable_bt(bt_go)
+            disable_bt(self.bt_go)
 
             self.generateur.generer(gen_options, gen_fini)
 
@@ -75,33 +82,36 @@ class AppWindow(tk.Tk):
         self.columnconfigure(1, weight=1)
 
         # entree fichier in
-        entree_in = OpenFileEntry(
+        self.entree_in = OpenFileEntry(
             self, "Fichier données :", exts=(('Fichier CSV', '*.csv'),), defaultext='.csv', defval=FICHIER_NON_SELECTIONNE)
-        entree_in.grid(row=0, column=0, columnspan=2, sticky="EW")
+        self.entree_in.grid(row=0, column=0, columnspan=2, sticky="EW")
 
         # entree fichier mod
-        entree_mod = OpenFileEntry(
+        self.entree_mod = OpenFileEntry(
             self, "Fichier modèle :", exts=(('Fichier Excel', '*.xlsx'),), defaultext='.xlsx', defval=FICHIER_NON_SELECTIONNE)
-        entree_mod.grid(row=1, column=0, columnspan=2, sticky="EW")
+        self.entree_mod.grid(row=1, column=0, columnspan=2, sticky="EW")
 
         # entree fichier out
-        entree_out = SaveFileEntry(
+        self.entree_out = SaveFileEntry(
             self, "Fichier de sortie :", exts=(('Fichier Excel', '*.xlsx'),), defaultext='.xlsx', defval=FICHIER_NON_SELECTIONNE)
-        entree_out.grid(row=2, column=0, columnspan=2, sticky="EW")
+        self.entree_out.grid(row=2, column=0, columnspan=2, sticky="EW")
 
         # entree année
         lbl_annee = tk.Label(self, text="Année sélectionnée :")
         lbl_annee.grid(row=3, column=0)
-        entree_annee = tk.Entry(self)
-        entree_annee.grid(row=3, column=1)
+        self.entree_annee = tk.Entry(self)
+        self.entree_annee.grid(row=3, column=1)
 
         # bouton action
-        bt_go = tk.Button(self, text="Générer", command=lambda: self.__generer(
-            entree_in.filename, entree_mod.filename, entree_out.filename, entree_annee.get(), bt_go))
-        bt_go.grid(row=4, column=0, columnspan=2)
+        self.bt_go = tk.Button(self, text="Générer",
+                               command=self.__generer)
+        self.bt_go.grid(row=4, column=0, columnspan=2)
 
     def ask_stop(self):
         self.generateur.ask_clean_threads()
 
     def stop(self):
         self.generateur.clean_threads()
+
+    def report_callback_exception(self, exc, val, tb):
+        panic(str(val))
