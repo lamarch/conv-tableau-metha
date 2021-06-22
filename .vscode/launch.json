@@ -15,14 +15,14 @@
             "name": "Python : Fichier main",
             "type": "python",
             "request": "launch",
-            "program": "main.py",
+            "program": "${workspaceFolder}\\src\\main.py",
             "console": "integratedTerminal"
         },
         {
             "name": "Python : Fichier tests",
             "type": "python",
             "request": "launch",
-            "program": "tests.py",
+            "program": "${workspaceFolder}\\src\\tests.py",
             "console": "integratedTerminal"
         }
     ]
