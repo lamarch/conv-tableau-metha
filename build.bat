@@ -1,1 +1,1 @@
-python -m PyInstaller -F -y --windowed main.py
+python -m PyInstaller -F -y --windowed .\src\main.py
