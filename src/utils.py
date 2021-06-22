@@ -1,6 +1,11 @@
 import threading
 from tkinter import messagebox
 import traceback
+from os import environ
+
+
+def is_devenv():
+    return "PY_ENV" in environ and environ["PY_ENV"] == "DEV"
 
 
 def panic(msg: str, tb: traceback):

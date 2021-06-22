@@ -9,21 +9,30 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "env": {
+                "PY_ENV": "DEV"
+            }
         },
         {
             "name": "Python : Fichier main",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}\\src\\main.py",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "env": {
+                "PY_ENV": "DEV"
+            }
         },
         {
             "name": "Python : Fichier tests",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}\\src\\tests.py",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "env": {
+                "PY_ENV": "DEV"
+            }
         }
     ]
 }
