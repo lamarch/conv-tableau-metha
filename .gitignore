@@ -2,5 +2,5 @@
 /dist
 /donnees
 /logs
-/__pycache__
+__pycache__/
 *.spec
