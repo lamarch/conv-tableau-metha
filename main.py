@@ -94,11 +94,11 @@ def ui():
 
     fenetre = tk.Tk()
     fenetre.title("Convertisseur")
-    fenetre.geometry("400x160")
+    fenetre.geometry("490x160")
 
-    fenetre.rowconfigure(0, weight=1)
-    fenetre.rowconfigure(1, weight=1)
-    fenetre.rowconfigure(2, weight=1)
+    fenetre.rowconfigure(0, weight=0)
+    fenetre.rowconfigure(1, weight=0)
+    fenetre.rowconfigure(2, weight=0)
     fenetre.rowconfigure(3, weight=1)
 
     fenetre.columnconfigure(0, weight=1)

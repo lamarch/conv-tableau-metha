@@ -13,11 +13,11 @@ class FileEntry(Frame):
     def __init__(self, master, text, command) -> None:
         super().__init__(master=master)
 
-        self.columnconfigure(0, weight=1)
+        self.columnconfigure(0, weight=0)
         self.columnconfigure(1, weight=1)
-        self.columnconfigure(2, weight=1)
+        self.columnconfigure(2, weight=0)
 
-        self.rowconfigure(0, weight=1)
+        self.rowconfigure(0, weight=0)
 
         self.command = command
         self.var = StringVar(master=self, value="Aucun fichier séléctionné.")
