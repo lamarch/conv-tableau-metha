@@ -8,7 +8,7 @@ from ui import OpenFileEntry, SaveFileEntry, disable_bt, enable_bt
 FICHIER_NON_SELECTIONNE = "Aucun fichier séléctionné."
 
 
-class Window(tk.Tk):
+class AppWindow(tk.Tk):
 
     def __init__(self) -> None:
         super().__init__()
@@ -87,7 +87,7 @@ class Window(tk.Tk):
         entree_out.grid(row=2, column=0, columnspan=2, sticky="EW")
 
         # entree année
-        lbl_annee = tk.Label(self, text="Année séléctionnée :")
+        lbl_annee = tk.Label(self, text="Année sélectionnée :")
         lbl_annee.grid(row=3, column=0)
         entree_annee = tk.Entry(self)
         entree_annee.grid(row=3, column=1)

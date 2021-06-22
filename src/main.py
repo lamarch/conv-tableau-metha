@@ -1,4 +1,4 @@
-from Window import Window
+from Window import AppWindow
 import sys
 import os.path
 from os import mkdir
@@ -29,7 +29,7 @@ def panic(*args):
 
 
 def main():
-    window = Window()
+    window = AppWindow()
 
     logs_path = f'./logs/{AJD()}.txt'
     logs_dir = os.path.dirname(logs_path)
