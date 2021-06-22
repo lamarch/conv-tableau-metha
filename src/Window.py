@@ -3,6 +3,7 @@ import tkinter.messagebox as messagebox
 from os.path import isfile
 
 from generateur.Generateur import Generateur
+from generateur.common import GenOptions
 from ui import OpenFileEntry, SaveFileEntry, disable_bt, enable_bt
 
 FICHIER_NON_SELECTIONNE = "Aucun fichier séléctionné."
@@ -15,7 +16,9 @@ class AppWindow(tk.Tk):
         self.generateur = Generateur()
         self.__build_ui()
 
-    def __check_entry(self, fichier_in: str, fichier_modele: str, fichier_out: str, annee: int) -> bool:
+    def __check_entry(self, gen_options: GenOptions) -> bool:
+        fichier_in, fichier_modele, fichier_out, annee = gen_options
+
         # entree
         if fichier_in == None or fichier_in == "" or fichier_in == FICHIER_NON_SELECTIONNE:
             messagebox.showerror(
@@ -52,18 +55,18 @@ class AppWindow(tk.Tk):
 
         return True
 
-    def __generer(self, fichier_in: str, fichier_modele: str, fichier_out: str, annee: int, bt_go: tk.Button):
+    def __generer(self, gen_options: GenOptions, bt_go: tk.Button):
         def gen_fini():
             enable_bt(bt_go)
             messagebox.showinfo("Génération terminée !",
                                 "La génération du fichier s'est terminée avec succès !")
 
-        if self.__check_entry(fichier_in, fichier_modele, fichier_out, annee):
+        if self.__check_entry(gen_options):
 
+            gen_options = gen_options._replace(annee=int(gen_options.annee))
             disable_bt(bt_go)
 
-            self.generateur.generer(
-                fichier_in, fichier_modele, fichier_out, int(annee), lambda: gen_fini())
+            self.generateur.generer(gen_options, gen_fini)
 
     def __build_ui(self):
         self.title("Convertisseur")

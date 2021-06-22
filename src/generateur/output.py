@@ -1,5 +1,7 @@
 import openpyxl
 
+from generateur.common import GenOptions
+
 LIGNE_HAUT = 7
 COLONNE_DROITE = 9
 
@@ -9,9 +11,9 @@ DECALAGE_CLIENT = 1
 
 
 class Exporteur:
-    def __init__(self, nom_fichier_modele: str, nom_fichier_sortie: str) -> None:
-        self.nom_fichier_modele = nom_fichier_modele
-        self.nom_fichier_sortie = nom_fichier_sortie
+    def __init__(self, gen_options: GenOptions) -> None:
+        self.nom_fichier_modele = gen_options.fichier_modele
+        self.nom_fichier_sortie = gen_options.fichier_out
 
     def charger(self):
         print(f'Chargement fichier modèle : "{self.nom_fichier_modele}"')

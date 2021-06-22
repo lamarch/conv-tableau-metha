@@ -1,3 +1,4 @@
+from generateur.common import GenOptions
 from generateur.input import Chargeur
 from generateur.output import Exporteur
 from util import AdvancedThread
@@ -7,11 +8,10 @@ class Generateur:
     def __init__(self) -> None:
         self.threads = []
 
-    def generer(self, fichier_in: str, fichier_modele: str, fichier_out: str, annee: str, gen_fini):
-        from ui import enable_bt, disable_bt
-
-        chargeur = Chargeur(fichier_in, annee)
-        exporteur = Exporteur(fichier_modele, fichier_out)
+    def generer(self, gen_options: GenOptions, gen_fini):
+        chargeur = Chargeur(gen_options.fichier_in, gen_options.annee)
+        exporteur = Exporteur(gen_options.fichier_modele,
+                              gen_options.fichier_out)
 
         t = AdvancedThread(
             on_quit=gen_fini,

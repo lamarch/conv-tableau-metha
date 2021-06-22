@@ -1,6 +1,8 @@
 from datetime import datetime
 from json import dumps
 
+from generateur.common import GenOptions
+
 POIDS = 6
 DATE = 14
 PRODUIT = 19
@@ -47,9 +49,9 @@ def lire_date(date: str) -> datetime:
 
 
 class Chargeur:
-    def __init__(self, nom_fichier: str, annee: int) -> None:
-        self.nom_fichier = nom_fichier
-        self.annee = annee
+    def __init__(self, gen_options: GenOptions) -> None:
+        self.nom_fichier = gen_options.fichier_in
+        self.annee = gen_options.annee
 
     def recuperer(self):
         return self.convertir(lire_donnees(self.nom_fichier))
