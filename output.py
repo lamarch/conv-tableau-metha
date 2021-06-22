@@ -4,7 +4,7 @@ LIGNE_HAUT = 7
 COLONNE_DROITE = 9
 
 MAX_MOIS = 12
-MAX_PRODUITS = 6
+MAX_PRODUITS = 7
 DECALAGE_CLIENT = 1
 
 
@@ -18,7 +18,7 @@ class Exporteur:
         self.wb = openpyxl.load_workbook(self.nom_fichier_modele)
         self.ws = self.wb.active
 
-    def convertir(self, donnees: dict):
+    def exporter(self, donnees: dict):
 
         len_donnees = len(donnees)
         i = 1

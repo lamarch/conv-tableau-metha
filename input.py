@@ -6,8 +6,6 @@ DATE = 14
 PRODUIT = 19
 CODE_CLIENT = 22
 
-ACCP_ANNEE = 2021
-
 LIENS_PRODUITS = {
     "Fumier bovins": 0,
     "Fumier bovins C2": 0,
@@ -19,8 +17,9 @@ LIENS_PRODUITS = {
     "Fumier ovins C2": 2,
     "Maïs ensilage": 3,
     "Seigle ensilage": 4,
-    "DIGESTAT": 5,
-    "DIGESTAT C2": 5,
+    "Paille": 5,
+    "DIGESTAT": 6,
+    "DIGESTAT C2": 6,
 }
 
 FORMAT_IN_DATE = "%d/%m/%Y %H:%M:%S"
@@ -48,8 +47,9 @@ def lire_date(date: str) -> datetime:
 
 
 class Chargeur:
-    def __init__(self, nom_fichier: str) -> None:
+    def __init__(self, nom_fichier: str, annee: int) -> None:
         self.nom_fichier = nom_fichier
+        self.annee = annee
 
     def recuperer(self):
         return self.convertir(lire_donnees(self.nom_fichier))
@@ -75,7 +75,7 @@ class Chargeur:
             try:
                 date_p = lire_date(date)
                 mois = date_p.month
-                if date_p.year != ACCP_ANNEE:
+                if date_p.year != self.annee:
                     print('Intervalle de date non respecté,')
                     raise ValueError(date)
                 if date_p.hour == 00:

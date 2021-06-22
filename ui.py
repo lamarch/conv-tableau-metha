@@ -10,7 +10,7 @@ def disable_bt(bt):
 
 
 class FileEntry(Frame):
-    def __init__(self, master, text, command) -> None:
+    def __init__(self, master, text: str, command, defval: str) -> None:
         super().__init__(master=master)
 
         self.columnconfigure(0, weight=0)
@@ -20,7 +20,7 @@ class FileEntry(Frame):
         self.rowconfigure(0, weight=0)
 
         self.command = command
-        self.var = StringVar(master=self, value="Aucun fichier séléctionné.")
+        self.var = StringVar(master=self, value=defval)
 
         self.lbl = Label(master=self, text=text)
         self.inp = Entry(master=self, textvariable=self.var, state=DISABLED)
@@ -40,8 +40,8 @@ class FileEntry(Frame):
 
 
 class OpenFileEntry(FileEntry):
-    def __init__(self, master, text, exts, defaultext) -> None:
-        super().__init__(master, text, self.ofg_name)
+    def __init__(self, master, text, exts, defaultext, defval: str) -> None:
+        super().__init__(master, text, self.ofg_name, defval)
         self.exts = exts
         self.defaultext = defaultext
 
@@ -50,8 +50,8 @@ class OpenFileEntry(FileEntry):
 
 
 class SaveFileEntry(FileEntry):
-    def __init__(self, master, text, exts, defaultext) -> None:
-        super().__init__(master, text, self.ofg_save)
+    def __init__(self, master, text, exts, defaultext, defval: str) -> None:
+        super().__init__(master, text, self.ofg_save, defval)
         self.exts = exts
         self.defaultext = defaultext
 
