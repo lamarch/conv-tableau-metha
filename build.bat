@@ -1,1 +1,1 @@
-python -m PyInstaller -F -y --windowed .\src\main.py
+python -m PyInstaller -F -y --icon .\icon.ico --windowed --clean  .\src\main.py
