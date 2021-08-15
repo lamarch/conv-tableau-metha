@@ -1,7 +1,8 @@
 import threading
-from tkinter import messagebox
 import traceback
+from tkinter import messagebox
 from os import environ
+from datetime import datetime
 
 
 def is_devenv():
@@ -12,7 +13,7 @@ def panic(msg: str, tb: traceback):
     import sys
 
     messagebox.showerror(
-        'Erreur critique !', f'Une erreur critique est survenue, demandez de l\'aide à l\'assistance ! Ne pas supprimer le fichier "erreur.txt".\n\n\n')
+        'Erreur critique !', f'Une erreur critique est survenue, demandez de l\'aide à l\'assistance ! Merci de ne pas supprimer le fichier "erreur.txt".\n\n\n')
     with open('erreur.txt', 'w', encoding='UTF8') as f:
         if tb:
             f.write(traceback.format_tb(tb))
@@ -20,6 +21,9 @@ def panic(msg: str, tb: traceback):
         f.write(msg)
 
     sys.exit(1)
+
+
+def today(): return str(datetime.now()).replace(':', '-').replace('/', '-')
 
 
 class AdvancedThread(threading.Thread):

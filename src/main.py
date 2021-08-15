@@ -1,24 +1,19 @@
 import sys
 import os.path
 from os import mkdir
-from datetime import datetime
-
 from Window import AppWindow
-from utils import panic
-
-
-def AJD(): return str(datetime.now()).replace(':', '-').replace('/', '-')
+from utils import panic, today
 
 
 FICHIER_IN = './donnees/Pesées terminées.csv'
 FICHIER_MOD = './donnees/recapitulatif 21.xlsx'
-FICHIER_OUT = f'./donnees/out-{AJD()}.xlsx'
+FICHIER_OUT = f'./donnees/out-{today()}.xlsx'
 
 
 def main():
     window = AppWindow()
 
-    logs_path = f'./logs/{AJD()}.txt'
+    logs_path = f'./logs/{today()}.txt'
     logs_dir = os.path.dirname(logs_path)
     if not os.path.isdir(logs_dir):
         mkdir(logs_dir)
@@ -27,9 +22,8 @@ def main():
     with open(logs_path, 'x', encoding='UTF8', buffering=1) as out:
         sys.stdout = sys.stderr = out
         window.mainloop()
-
-    window.ask_stop()
-    window.stop()
+        window.ask_stop()
+        window.stop()
 
 
 if __name__ == "__main__":
